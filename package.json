@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "A nice chord and lyrics displayer",
-  "repository": "",
+  "repository": "https://github.com/nscarcella/chordme.git",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
