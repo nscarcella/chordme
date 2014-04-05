@@ -1,0 +1,16 @@
+<svg height="118" width="138">
+
+  <text x="72" y="16" class="chord-name"><tspan dy="7.5">{{key.name}}</tspan></text>
+
+  <path stroke="#000000" ng-attr-d="M{{lines[0].x1}},{{lines[0].y1 + 8}}L{{lines[0].x2}},{{lines[0].y2 + 8}}" stroke-width="3"></path> 
+  
+  <path ng-repeat="line in lines" stroke="#000000" ng-attr-d="M{{line.x1}},{{line.y1 + 8}}L{{line.x2}},{{line.y2 + 8}}"></path>
+  
+  <text x="20" y="44" class="chord-fret" stroke="#000000"><tspan dy="4.5">{{key.base}}</tspan></text>
+<!--   <circle ng-repeat="string in strings" ng-if="key.positions[string] != null" ng-attr-cx="{{stringCoord(string)}}" ng-attr-cy="{{fretCoord(key.positions[string])}}" r="5"></circle> -->
+  <circle ng-repeat="coord in coords" ng-if="coord.pressed" ng-attr-cx="{{coord.x}}" ng-attr-cy="{{coord.y}}" r="5"></circle>
+ <text ng-repeat="coord in coords" ng-if="!coord.pressed" class="chord-unplayed-string" stroke="#000000" x="{{coord.x}}" y="{{coord.y}}">
+    <tspan dy="3">x</tspan>
+  </text>-->
+
+</svg>
