@@ -1,22 +1,27 @@
-.chord-name {
+.chord {
+  display: inline-block;
   text-anchor: middle;
-  font-family: Arial;
-  font-size: 20px;
+}
+
+.chord-name {
+  text-align: center;
+  font: bold 90%/1 sans-serif;
+  margin-bottom: 0px;
 }
 
 .chord-unplayed-string {
- text-anchor: middle;
  font-family: Arial;
- font-size: 12px;
  font-weight: bold;
  stroke: #000000;
 }
 
-.chord-fret {
-  text-anchor: middle;
+.chord-fret-number {
   font-family: Arial;
-  font-size: 12px;
   stroke: #000000;
+}
+
+.chord-head-fret {
+  stroke-width: 3;
 }
 
 line {

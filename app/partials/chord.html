@@ -1,13 +1,18 @@
-<svg height="118" width="138">
+<div class="chord">
+<h1 class="chord-name">{{key.name}}</h1>
+  <svg ng-attr-width="{{width}}" ng-attr-height="{{height}}">
+    <line
+      ng-repeat="line in lines"
+      ng-class="{'chord-head-fret': $first}"
+      ng-attr-x1="{{line.x1}}"
+      ng-attr-y1="{{line.y1}}"
+      ng-attr-x2="{{line.x2}}"
+      ng-attr-y2="{{line.y2}}"
+    />
+    
+    <text font-size="{{pressSize*2}}px" x="{{baseFretX}}" y="{{baseFretY + pressSize / 2}}" class="chord-fret-number">{{key.base}}</text>
 
-  <text x="72" y="20" class="chord-name">{{key.name}}</text>
-
-  <line stroke-width="3" ng-attr-x1="{{lines[0].x1}}" ng-attr-y1="{{lines[0].y1 + 8}}" ng-attr-x2="{{lines[0].x2}}" ng-attr-y2="{{lines[0].y2 + 8}}"/>
-  <line ng-repeat="line in lines" ng-attr-x1="{{line.x1}}" ng-attr-y1="{{line.y1 + 8}}" ng-attr-x2="{{line.x2}}" ng-attr-y2="{{line.y2 + 8}}"/>
-  
-  <text x="{{lines[1].x1 - 8}}" y="{{lines[1].y1 + 4}}" class="chord-fret">{{key.base}}</text>
-
-  <circle ng-repeat="coord in coords" ng-if="coord.pressed" ng-attr-cx="{{coord.x}}" ng-attr-cy="{{coord.y}}" r="5"/>
-  <text ng-repeat="coord in coords" ng-if="!coord.pressed" class="chord-unplayed-string" x="{{coord.x}}" y="{{coord.y}}">x</text>
-
-</svg>
+    <circle ng-repeat="coord in coords" ng-if="coord.pressed" ng-attr-cx="{{coord.x}}" ng-attr-cy="{{coord.y}}" ng-attr-r="{{pressSize}}"/>
+    <text font-size="{{pressSize*2}}px" ng-repeat="coord in coords" ng-if="!coord.pressed" class="chord-unplayed-string" x="{{coord.x}}" y="{{coord.y + pressSize / 2}}">x</text>
+  </svg>
+</div>
