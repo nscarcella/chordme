@@ -1,29 +1,41 @@
 .chord {
   display: inline-block;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.chord text {
+  font-family: Arial;
   text-anchor: middle;
 }
 
+.chord line {
+  stroke: #000000;
+}
+
 .chord-name {
-  text-align: center;
-  font: bold 90%/1 sans-serif;
+  font-size: 90%;
   margin-bottom: 0px;
 }
 
-.chord-unplayed-string {
- font-family: Arial;
- font-weight: bold;
- stroke: #000000;
+.chord-variations {
+  font-size: 70%;
+  font-weight: normal;
+  margin-top: 0px;
+  letter-spacing: 2px;
 }
 
-.chord-fret-number {
-  font-family: Arial;
-  stroke: #000000;
+.chord-variations a {
+  font-weight: bold;
+  text-decoration:none;
+}
+
+.chord-unplayed-string {
+ stroke: #000000;
 }
 
 .chord-head-fret {
   stroke-width: 3;
-}
-
-line {
-  stroke: #000000;
 }
