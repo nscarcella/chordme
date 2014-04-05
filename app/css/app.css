@@ -9,10 +9,16 @@
  font-family: Arial;
  font-size: 12px;
  font-weight: bold;
+ stroke: #000000;
 }
 
 .chord-fret {
   text-anchor: middle;
   font-family: Arial;
   font-size: 12px;
+  stroke: #000000;
+}
+
+line {
+  stroke: #000000;
 }
