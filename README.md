@@ -19,23 +19,7 @@ Draws a guitar chord diagram for a given note with all it's variations.
   _Example:_
   
   ```javascript
-  {
-    name: 'A',
-    variations:[
-      {
-        base: 0,
-        positions: [0,2,2,2,0,null]
-      },
-      {
-        base: 5,
-        positions: [5,5,6,7,7,5]
-      },
-      {
-        base 9,
-        positions: [9,10,9,11,12,null]
-      }
-    ]
-  }
+  {name: 'A', variations:[[0,2,2,2,0,null], [5,5,6,7,7,5], [9,10,9,11,12,null]]}
   ```
     
 *fret-count*: (optional) Number of frets to be drawn on graphic. Make sure it is at least as many as needed for all the note's variations. Defaults to 5.
