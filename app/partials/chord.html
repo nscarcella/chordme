@@ -1,5 +1,5 @@
 <div class="chord">
-  <h1 class="chord-name">{{key.name}}</h1>
+  <h1 class="chord-name">{{note.name}}</h1>
   <svg ng-attr-width="{{width}}" ng-attr-height="{{height}}">
     <line
       ng-repeat="line in lines"
@@ -10,14 +10,14 @@
       ng-attr-y2="{{line.y2}}"
     />
     
-    <text font-size="{{pressSize*2}}px" x="{{baseFretX}}" y="{{baseFretY + pressSize / 2}}">{{key.variations[currentVariation].base}}</text>
+    <text font-size="{{pressSize*2}}px" x="{{baseFretX}}" y="{{baseFretY + pressSize / 2}}">{{note.variations[currentVariation].base}}</text>
 
     <circle ng-repeat="coord in coords" ng-if="coord.pressed" ng-attr-cx="{{coord.x}}" ng-attr-cy="{{coord.y}}" ng-attr-r="{{pressSize}}"/>
     <text font-size="{{pressSize*2}}px" ng-repeat="coord in coords" ng-if="!coord.pressed" class="chord-unplayed-string" x="{{coord.x}}" y="{{coord.y + pressSize / 2}}">x</text>
   </svg>
   
   <div class="chord-variations">
-    <a href ng-click="setPreviousVariation()">&lt;</a>{{currentVariation + 1}}/{{key.variations.length}}<a href ng-click="setNextVariation()">&gt;</a>
+    <a href ng-click="setPreviousVariation()">&lt;</a>{{currentVariation + 1}}/{{note.variations.length}}<a href ng-click="setNextVariation()">&gt;</a>
   </div>
   
 </div>
