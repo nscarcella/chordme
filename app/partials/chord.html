@@ -10,10 +10,17 @@
       ng-attr-y2="{{line.y2}}"
     />
     
-    <text font-size="{{pressSize*2}}px" x="{{baseFretX}}" y="{{baseFretY + pressSize / 2}}">{{note.variations[currentVariation].base}}</text>
+    <text font-size="{{pressSize*2}}px" x="{{baseFretX}}" y="{{baseFretY + pressSize / 2}}">{{base}}</text>
 
     <circle ng-repeat="coord in coords" ng-if="coord.pressed" ng-attr-cx="{{coord.x}}" ng-attr-cy="{{coord.y}}" ng-attr-r="{{pressSize}}"/>
-    <text font-size="{{pressSize*2}}px" ng-repeat="coord in coords" ng-if="!coord.pressed" class="chord-unplayed-string" x="{{coord.x}}" y="{{coord.y + pressSize / 2}}">x</text>
+    <text
+      font-size="{{pressSize*2}}px"
+      ng-repeat="coord in coords"
+      ng-if="!coord.pressed"
+      class="chord-unplayed-string"
+      x="{{coord.x}}"
+      y="{{coord.y + pressSize / 2}}"
+    >x</text>
   </svg>
   
   <div class="chord-variations">

@@ -23,13 +23,13 @@ angular.module('myApp.directives', [])
       scope.fretDistance = scope.fretDistance || defaultFretDistance;
       scope.airMargin = scope.airMargin || defaultAirMargin;
       
-      var stringCoord = function(string){ return scope.stringDistance + scope.stringDistance * string };
+      var stringCoord = function(string){ return scope.stringDistance + scope.stringDistance * (stringCount - 1 - string) };
       var fretCoord = function(fret){ return scope.pressSize * 2 + scope.airMargin + scope.fretDistance * fret };
 
       scope.pressSize = Math.min(scope.fretDistance,scope.stringDistance) / 4 + 1;
       scope.width = scope.stringDistance + stringCount * scope.stringDistance;
       scope.height = scope.pressSize * 3 + scope.airMargin + (scope.fretCount -1) * scope.fretDistance;
-      scope.baseFretX = stringCoord(0) - scope.stringDistance / 2;
+      scope.baseFretX = stringCoord(5) - scope.stringDistance / 2;
       scope.baseFretY = fretCoord(0) + scope.fretDistance / 2;
       
       scope.lines = [];
@@ -37,13 +37,18 @@ angular.module('myApp.directives', [])
       for(var i=0; i<stringCount; i++) scope.lines.push({x1:stringCoord(i), y1:fretCoord(0), x2:stringCoord(i), y2:fretCoord(scope.fretCount - 1)});
       
       scope.coords = [];
-      scope.$watch("currentVariation",function(newValue){
+      scope.$watch("currentVariation",function(currentVariation){
+        var pressed = scope.note.variations[currentVariation].filter(function(e){return e > 0});
+        var max = Math.max.apply(null, pressed);
+        var min = Math.min.apply(null, pressed);
+        scope.base = max < scope.fretCount ? 1 : min;
+        
         for(var i=0; i<stringCount; i++) {
-          var position = scope.note.variations[scope.currentVariation].positions[i];
+          var position = scope.note.variations[currentVariation][i];
           scope.coords[i] = {
             pressed: position != null,
             x: stringCoord(i),
-            y: position > 0 ? fretCoord(position) - scope.fretDistance / 2 : scope.pressSize
+            y: position > 0 ? fretCoord(position - scope.base + 1) - scope.fretDistance / 2 : scope.pressSize
           };
         }
       });
