@@ -6,10 +6,10 @@ var defaultStringDistance = 16;
 var defaultFretDistance = 20;
 var defaultAirMargin = 5;
 
-angular.module('myApp.directives', [])
+angular.module('chord.directives', [])
   .directive('cmChord', function(){ return {
     restrict: 'AE',
-    templateUrl: 'partials/chord.html',
+    templateUrl: 'components/chord/chord.html',
     scope: {
       note:'=',
       fretCount:'=?',

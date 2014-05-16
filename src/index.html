@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="chordme">
+  <head>
+    <meta charset="utf-8">
+    <title>ChordMe</title>
+    
+    <link href="app.css" rel="stylesheet"/>
+    <!-- fileblock:css component-styles -->
+    <link href="components/chord/chord.css" rel="stylesheet" />
+    <link href="components/lyric/lyric.css" rel="stylesheet" />
+    <!-- endfileblock -->
+    
+  </head>
+  <body>
+    <div ng-view></div>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    <script src="http://bouil.github.io/angular-google-chart/ng-google-chart.js"></script>
+    -->
+    
+    <!-- fileblock:js vendor-code -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/highcharts/highcharts-all.js"></script>
+    <script src="../bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
+    <!-- endfileblock -->
+    
+    <script src="app.js"></script>
+    
+    <!-- fileblock:js component-code -->
+    <script src="components/chord/chord.directives.js"></script>
+    <script src="components/chord/chord.js"></script>
+    <script src="components/songList/songList.controllers.js"></script>
+    <script src="components/songList/songList.js"></script>
+    <script src="components/lyric/lyric.directives.js"></script>
+    <script src="components/lyric/lyric.js"></script>
+    <!-- endfileblock -->
+  </body>
+  
+</html>

@@ -1,0 +1,14 @@
+.chordline {
+  line-height:2.5
+}
+.lyric {
+  position:relative;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.chordname {
+  position:absolute;
+  top:-1em; left:0;
+  font:bold 75%/1 sans-serif;
+  color:green;
+}
